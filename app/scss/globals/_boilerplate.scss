@@ -1,0 +1,30 @@
+@use "../util" as u;
+
+*, *::after, *::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: min(3rem, 15vw) 0;
+  background-color: var(--skin-color);
+  border: 5px solid var(--black);
+}
+
+header, main, footer {
+  width: min(100% - 1em, 70em);
+  margin-inline: auto;
+}
+
+header {
+  z-index: 99;
+}
+
+footer {
+  height: auto;
+}
+
+img {
+  display: block;
+}

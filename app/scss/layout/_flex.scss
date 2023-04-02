@@ -1,0 +1,160 @@
+@use "../util" as u;
+
+.flex {
+  display: flex;
+}
+
+header {
+  align-items: center;
+  justify-content: space-between;
+  padding: .3rem;
+  position: fixed;
+  inset: 7px 0 auto 0;
+  background-color: var(--black);
+ 
+ .logo-header {
+  flex-basis: auto;
+  flex-grow: 0;
+ }
+
+ .links-container {
+    list-style-type: none;
+    position: fixed;
+    inset: 3.2em 8px auto 30%;
+    flex-flow: column;
+    gap: 3em;
+    padding: min(20vw, 30rem) 2rem;
+
+    background-color: var(--skin-color);
+    border: var(--black) 4px solid;
+    
+    transition: all .17s ease-in;
+    transform: translateX(120%);
+
+  @include u.breakpoint(medium){
+    position: relative;
+    inset: 0;
+    background: transparent;
+    
+    flex-flow: row;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    transform: translateX(0);
+    padding: 0;
+
+    a {
+      color: var(--skin-color);
+      flex: 1;
+    }
+  }
+ }
+
+ .links-container[data-visible=true] {
+  transform: translateX(0);
+ }
+ .toggle-mobile {
+  flex-basis: 2rem;
+  padding: 3px;
+  border: 1px solid var(--black);
+  background-color: transparent;
+  z-index: 9999;
+  filter: invert(1);
+
+  @include u.breakpoint(medium){
+    display: none;
+  }
+
+  img {
+    width: 100%;
+  }
+ }
+
+}
+
+.main__header, .container-3d {
+  flex-flow: column;
+  gap: .5rem;
+}
+
+.container-3d {
+  --rotate-degX: 0deg;
+  --rotate-degY: 0deg;
+  position: relative;
+  align-self: flex-start;
+  border: 4px var(--black) solid;
+  padding: 3px;
+  background-color: var(--skin-color);
+  width: min(100%, 10em);
+  margin-inline: auto;
+  cursor: pointer;
+
+  // 3D styles ***********
+  transform: 
+    perspective(7000px)
+    rotateY(var(--rotate-degY))
+    rotateX(var(--rotate-degX))
+  ;
+  // This is a very importan property:
+  transform-style: preserve-3d;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border: 2px solid var(--black);
+  }
+
+  &::after {
+    inset: -5px;
+    background: 
+      // linear-gradient(-45deg, var(--yellow-dragon), var(--red-orange));
+      var(--yellow-dragon);
+    -webkit-transform: translateZ(-25px);
+    transform: translateZ(-25px);
+  }
+
+  // 3D styles ***********
+
+  >* {
+    background-color: var(--black);
+    color: var(--white);
+  }
+}
+
+.main__header{
+  .above-h1, h1 {
+    background-color: var(--black);
+  }
+  
+}
+
+.footer {
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: .3rem .5rem;
+  margin-top: .5rem;
+  background-color: var(--black);
+  color: var(--skin-color);
+
+  .footer__black {
+    flex: 2;
+  }
+
+  .footer__red {
+    flex-basis: 3rem;
+
+    img {
+      aspect-ratio: 1;
+      width: 100%;
+      object-fit: cover;
+      filter: invert(1);
+    }
+  }
+ 
+
+  @include u.breakpoint(medium){
+    flex-flow: row;
+  }
+}

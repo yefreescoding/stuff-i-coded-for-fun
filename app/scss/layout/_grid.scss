@@ -1,0 +1,62 @@
+@use "../util" as u;
+
+.grid {
+  display: grid;
+}
+
+.main {
+  gap: .5rem;
+  background-color: var(--red-orange);
+  border: 4px var(--black) solid;
+
+  .main__content {
+    grid-auto-columns: 1fr;
+    grid-auto-rows: auto;
+    grid-template-areas: 
+    "tresD image image"
+    "yefree yefree yefree";
+    position: relative;
+    gap: .7rem;
+    padding: .3rem;
+
+    .container-3d {
+      grid-area: tresD;
+    }
+
+    .img-red {
+      display: none;
+      width: 100%;
+    }
+    .img-red-mobile {
+      grid-area: image;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 4px solid var(--black);
+    }
+
+    .image-title {
+      grid-area: yefree;
+      background-color: var(--intense-red);
+      border: 4px solid var(--black);
+    }
+
+    @include u.breakpoint(large){
+      grid-template-areas: 
+      "tresD image"
+      "yefree yefree";
+      position: relative;
+
+      .img-red {
+        display: block;
+        width: 100%;
+        border: 4px solid var(--black);
+      }
+      .img-red-mobile {
+        display: none;
+      }
+
+    }
+  }
+}

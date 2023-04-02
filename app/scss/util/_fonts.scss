@@ -1,0 +1,11 @@
+:root {
+  --Regular-font: 'Noto Sans JP', sans-serif;
+  --Special-font: hibagon;
+  --Regular-font-en: 'Cabinet Grotesk', sans-serif;
+  --Code-font: 'Fira Code', monospace;
+}
+
+@font-face {
+  font-family: hibagon;
+  src: url(../../../resources/fonts/hibagon-font/HibagonDemoRegular-lgpaq.otf);
+}
