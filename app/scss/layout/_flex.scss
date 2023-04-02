@@ -96,6 +96,7 @@ header {
     rotateX(var(--rotate-degX))
   ;
   // This is a very importan property:
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
 
   &::before,
@@ -107,10 +108,10 @@ header {
 
   &::after {
     inset: -5px;
-    background: 
+    background-color: 
       // linear-gradient(-45deg, var(--yellow-dragon), var(--red-orange));
       var(--yellow-dragon);
-    -webkit-transform: translateZ(-25px);
+    // -webkit-transform: translateZ(-25px);
     transform: translateZ(-25px);
   }
 
@@ -123,6 +124,8 @@ header {
 }
 
 .main__header{
+  width: calc(100% - 1em);
+  margin: 0 auto;
   .above-h1, h1 {
     background-color: var(--black);
   }

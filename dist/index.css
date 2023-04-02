@@ -71,7 +71,7 @@ header .logo-header {
 }
 .main__header h1 {
   font-family: var(--Regular-font);
-  font-size: min(5.5rem, 15vw);
+  font-size: min(5.5rem, 12vw);
   text-align: center;
   line-height: 65px;
   font-weight: 900;
@@ -82,7 +82,7 @@ header .logo-header {
   font-family: var(--Regular-font-en);
   font-weight: 900;
   color: var(--white);
-  font-size: min(5.5rem, 14vw);
+  font-size: min(5.5rem, 13vw);
   text-align: center;
   text-shadow: 3px 6px 0 var(--black);
 }
@@ -201,7 +201,7 @@ header .toggle-mobile img {
 }
 .container-3d::after {
   inset: -5px;
-  background: var(--yellow-dragon);
+  background-color: var(--yellow-dragon);
   transform: translateZ(-25px);
 }
 .container-3d > * {
@@ -209,6 +209,10 @@ header .toggle-mobile img {
   color: var(--white);
 }
 
+.main__header {
+  width: calc(100% - 1em);
+  margin: 0 auto;
+}
 .main__header .above-h1, .main__header h1 {
   background-color: var(--black);
 }
